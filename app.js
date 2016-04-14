@@ -8,6 +8,7 @@ var ejs = require('ejs');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var movie = require('./routes/movie');
 
 var app = express();
 
@@ -26,6 +27,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+
+app.get('/movie/add', movie.movieAdd);// add
+app.post('/movie/doAdd', movie.doMovieAdd);// post add
+// app.get('/movie/:name', movie.movieAdd); // edit query
+// app.get('/movie/json/:name', movie.movieJSON); // json data
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
