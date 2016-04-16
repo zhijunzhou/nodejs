@@ -17,8 +17,9 @@ exports.movieAdd = function(req, res) {
 };
 
 exports.doMovieAdd = function(req, res) {
-    console.log(req.body+","+req.body['content']);
-    var json = req.body.content;
+    var jsonStr = JSON.stringify(req.body);
+    var json = JSON.parse(jsonStr);
+    
     if(json._id) {
         // update
     } else {
@@ -31,6 +32,5 @@ exports.doMovieAdd = function(req, res) {
            }
         });
     }
-    res.send({'success':false});
 };
 

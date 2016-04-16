@@ -9,6 +9,7 @@ var ejs = require('ejs');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var movie = require('./routes/movie');
+// var caqi = require('./routes/')
 
 var app = express();
 
@@ -27,6 +28,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+
+app.get('/cache',function(req,res) {
+    res.render('cache/CacheControl');
+});
+
 
 app.get('/movie/add', movie.movieAdd);// add
 app.post('/movie/doAdd', movie.doMovieAdd);// post add

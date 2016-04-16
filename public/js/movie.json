@@ -1,5 +1,5 @@
 {
-    "name": "未来警察",
+    "name": "Allen",
     "alias": [
         "Future X-Cops ",
         "Mei loi ging chaat"
@@ -11,22 +11,13 @@
     },
     "source": [
         {
-            "source": "优酷",
+            "source": "youku",
             "link": "http://www.youku.com",
             "swfLink": "http://player.youku.com/player.php/sid/XMTY4NzM5ODc2/v.swf",
-            "quality": "高清",
-            "version": "正片",
-            "lang": "汉语",
-            "subtitle": "中文字幕"
-        },
-        {
-            "source": "搜狐",
-            "link": "http://tv.sohu.com",
-            "swfLink": "http://share.vrs.sohu.com/75837/v.swf&topBar=1&autoplay=false&plid=3860&pub_catecode=",
-            "quality": "高清",
-            "version": "正片",
-            "lang": "汉语",
-            "subtitle": "中文字幕"
+            "quality": "720p",
+            "version": "Pro",
+            "lang": "zh-cn",
+            "subtitle": "Chinese"
         }
     ]
 }
