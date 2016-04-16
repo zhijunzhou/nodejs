@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var ejs = require('ejs');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+// var users = require('./routes/users');
 var movie = require('./routes/movie');
 // var caqi = require('./routes/')
 
@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+// app.use('/users', users);
 
 app.get('/cache',function(req,res) {
     res.render('cache/CacheControl');
@@ -36,6 +36,9 @@ app.get('/cache',function(req,res) {
 
 app.get('/movie/add', movie.movieAdd);// add
 app.post('/movie/doAdd', movie.doMovieAdd);// post add
+app.get('/movie/list', movie.list);
+app.get('/movie/:name',movie.movieAdd);
+app.get('/movie/json/:name',movie.movieJson);
 // app.get('/movie/:name', movie.movieAdd); // edit query
 // app.get('/movie/json/:name', movie.movieJSON); // json data
 

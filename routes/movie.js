@@ -34,3 +34,26 @@ exports.doMovieAdd = function(req, res) {
     }
 };
 
+exports.findByName = function (res, req) {
+    console.log("what");
+    Movie.find({}, function (err, docs) {
+        if(err) {
+               res.send({'success':false, 'err':err});
+           } else {
+               console.log(docs);
+               res.send({'success':true});
+           }
+    });
+};
+
+exports.movieJson=function(req,res){
+    Movie.findByName(req.params.name,function(err,obj){
+        res.send(obj);
+    });
+};
+
+exports.list=function(req,res){
+    Movie.list(function(err,obj){
+        res.send(obj);
+    });
+};

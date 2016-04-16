@@ -29,7 +29,19 @@ MovieDAO.prototype.save = function(obj, callback) {
   var instance = new Movie(obj);
   instance.save(function(err) {
      callback(err); 
-  });
+  })
+};
+
+MovieDAO.prototype.findByName = function (name, callback) {
+    Movie.find({name:name},function (err,obj) {
+        callback(err, obj);
+    })
+};
+
+MovieDAO.prototype.list = function (callback) {
+    Movie.find({},function (err,obj) {
+        callback(err, obj);
+    })
 };
 
 module.exports = new MovieDAO();

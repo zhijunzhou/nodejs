@@ -1,6 +1,7 @@
 $(function () {
     var mdata = {};
     var url = '/js/movie.json';
+    
     $.getJSON(url, function (data) {
         mdata = data;
         render_editor_form(mdata);
@@ -10,34 +11,11 @@ $(function () {
         $('#c_editor').val($.toJSON(data));
     };
     
-    var content = {
-        "name": "Allen",
-        "alias": [
-            "Future X-Cops ",
-            "Mei loi ging chaat"
-        ],
-        "publish": "2010-04-29",
-        "images": {
-            "coverBig": "/img/movie/1_big.jpg",
-            "coverSmall": "/img/movie/1_small.jpg"
-        },
-        "source": [
-            {
-                "source": "youku",
-                "link": "http://www.youku.com",
-                "swfLink": "http://player.youku.com/player.php/sid/XMTY4NzM5ODc2/v.swf",
-                "quality": "720p",
-                "version": "Pro",
-                "lang": "zh-cn",
-                "subtitle": "Chinese"
-            }
-        ]
-    };
-    
     var render_event_form = function () {
         $('#c_save').on('click', function (event) {
-            var data = {};
-            data.content = mdata;
+            // var data = {};
+            mdata = JSON.parse($('#c_editor').val());
+            
             $.ajax({
                 type: "POST",
                 url: '/movie/doAdd',
