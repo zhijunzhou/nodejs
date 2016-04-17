@@ -1,0 +1,49 @@
+#top-home-nav {
+    background: url('/images/top_bg.png') no-repeat center center;
+    background-size: cover;
+    height: 320px;
+    color: #fff;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+#top-home-nav .main-map{
+    height: 25px;
+}
+#top-home-nav .main-title {
+    height: 253px;
+}
+#top-home-nav .main-nav-container {
+    height: 42px;
+    background-color:rgba(51, 122,183, 0.5);
+}
+#main-nav .nav-tabs {
+    border: 0;
+}
+#main-nav ul li {
+    width: 120px;
+}
+#main-nav ul li a {
+    background: rgba(51, 122,183, 0.5);
+    color: #fff;
+    border: 0;
+    border-radius: 0;
+}
+#main-nav .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, 
+.nav-tabs>li.active>a:hover {
+    background-color: #0ba0c1;
+    border: 0;
+    color: #fff;
+    box-shadow: 0 -2px #385caa;
+}
+
+.public-msg {
+    font-size: 13px;
+    color: #444;
+}
+.home-panel-left {
+    padding-left: 0;
+}
+
+.home-panel-right {
+    padding-right:0;
+}

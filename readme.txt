@@ -21,3 +21,10 @@ Description: 1. fixed the issue (save json data using JSON api)
              2. Add query moudle
              3. Add typings > npm install -g typings
              4. Testing Http 1.1 Cache-Control
+
+Date: 2016-04-17
+Author: Allen Zhou
+Description: 1. redefine the project content
+             2. import requirejs, angularjs
+             3. home page design
+             4. cdn resources could be loaded from the cache
