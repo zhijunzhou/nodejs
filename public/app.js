@@ -11,6 +11,13 @@ define(['angular', 'require', 'angular-route','bootstrap'], function (angular, r
         $scope.message = "Hello, Angular JS.";
     });
 
+    app.config(function($routeProvider,$locationProvider) {
+        $routeProvider
+            .when('/test', {
+                controller: "testController",
+                templateUrl: 'views/movie.html'
+            })
+    });
     // app.config(['$routeProvider', '$controllerProvider', function ($routeProvider, $controllerProvider) {
     //     $routeProvider.when('/module1', {
     //         templateUrl: 'module1/tpl.html',
@@ -30,6 +37,6 @@ define(['angular', 'require', 'angular-route','bootstrap'], function (angular, r
     //             redirectTo: '/module1'
     //         });
     // }]);
-
+    return app;
 });
 

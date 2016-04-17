@@ -33,7 +33,9 @@ app.get('/cache',function(req,res) {
     res.render('cache/CacheControl');
 });
 
-
+app.get('/test', function(req, res) {
+  res.render('views/movie.html');
+});
 app.get('/movie/add', movie.movieAdd);// add
 app.post('/movie/doAdd', movie.doMovieAdd);// post add
 app.get('/movie/list', movie.list);
