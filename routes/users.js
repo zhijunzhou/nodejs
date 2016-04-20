@@ -1,10 +1,11 @@
-var express = require('express');
-var router = express.Router();
+//
+// user router
+//
 
-/* GET users listing. */
-router.get('/users', function(req, res, next) {
-//   res.send('respond with a resource');
-    res.render('index',{title:'user message...'});
-});
+exports.register = function (req, res) {
+    res.render('user/register',{title:'注册用户'});
+}
 
-module.exports = router;
+exports.login = function (req, res) {
+    res.render('index');
+}

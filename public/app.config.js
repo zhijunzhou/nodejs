@@ -26,7 +26,8 @@ require.config({
             deps: ['angular'],
             exports: 'ngRouteModule'
         }
-    }    
+    }
+    // urlArgs: "t=" + (new Date()).getTime()
 });
 
 require(["angular","app"],function(angular,app){
