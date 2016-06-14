@@ -8,9 +8,11 @@ var session = require('express-session');
 var ejs = require('ejs');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var movie = require('./routes/movie');
+// var users = require('./routes/users');
+// var movie = require('./routes/movie');
+var news = require('./controller/news');
 // var caqi = require('./routes/')
+  
 
 var errorHandler = require('errorhandler');
 
@@ -37,7 +39,10 @@ app.use(session({
 }))
 
 app.use('/', routes);
-app.use('/movie', routes);
+
+app.get('/news/:nid', news.showEdit);
+app.post('/news/create', news.createNews);
+// app.use('/movie', routes);
 
 // user routes
 // app.use('/user/register', users.register);
