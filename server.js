@@ -4,12 +4,15 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 var ejs = require('ejs');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-// var movie = require('./routes/movie');
+var movie = require('./routes/movie');
 // var caqi = require('./routes/')
+
+var errorHandler = require('errorhandler');
 
 var app = express();
 
@@ -25,12 +28,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: '12345',
+  name:'testapp',
+  cookie: {maxAge: 8000},
+  resave: false,
+  saveUninitialized: true,
+}))
 
 app.use('/', routes);
-app.use('/home', routes);
+app.use('/movie', routes);
 
 // user routes
-app.use('/user/register', users.register);
+// app.use('/user/register', users.register);
 
 // app.get('/movie/add', movie.movieAdd);// add
 // app.post('/movie/doAdd', movie.doMovieAdd);// post add
@@ -52,13 +62,14 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
+  app.use(errorHandler);
+  // app.use(function(err, req, res, next) {
+  //   res.status(err.status || 500);
+  //   res.render('error', {
+  //     message: err.message,
+  //     error: err
+  //   });
+  // });
 }
 
 // production error handler

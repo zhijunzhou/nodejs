@@ -3,11 +3,12 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: '未定义-在线学习管理系统' });
+	// req.session.love = "";
+	res.render('index', { title: req.session.username + '-在线学习管理系统' });
 });
 
 router.get('/home', function(req, res, next) {
-  res.render('index', { title: '未定义-在线学习管理系统' });
+ 	res.render('movie');
 });
 
 module.exports = router;

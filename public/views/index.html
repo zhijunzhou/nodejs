@@ -4,11 +4,8 @@
         
         <!-- public message -->
         <% include ../components/publicMsg.template.html %>
-        
-        <!-- main content left -->
-        <% include ../components/recentNews.html %>
-        
-        <!-- user login span -->
-        <% include ../components/login.template.html %>
+
+        <ng-view></ng-view>
+
     </div>
 <% include footer.html %>
