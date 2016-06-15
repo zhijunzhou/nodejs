@@ -7,10 +7,9 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var ejs = require('ejs');
 
-var routes = require('./routes/index');
+var router = require('./routes/index');
 // var users = require('./routes/users');
 // var movie = require('./routes/movie');
-var news = require('./controller/news');
 // var caqi = require('./routes/')
   
 
@@ -38,22 +37,7 @@ app.use(session({
   saveUninitialized: true,
 }))
 
-app.use('/', routes);
-
-app.get('/news/:nid', news.showEdit);
-app.post('/news/create', news.createNews);
-// app.use('/movie', routes);
-
-// user routes
-// app.use('/user/register', users.register);
-
-// app.get('/movie/add', movie.movieAdd);// add
-// app.post('/movie/doAdd', movie.doMovieAdd);// post add
-// app.get('/movie/list', movie.list);
-// app.get('/movie/:name',movie.movieAdd);
-// app.get('/movie/json/:name',movie.movieJson);
-// app.get('/movie/:name', movie.movieAdd); // edit query
-// app.get('/movie/json/:name', movie.movieJSON); // json data
+app.use('/', router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,3 +1,6 @@
 /node_modules
 /demo
 /bower_components
+app/models/blog.js
+app/models/CRUD.js
+app/models/PersonVirtual.js

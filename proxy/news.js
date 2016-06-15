@@ -3,7 +3,7 @@ var News 		= require('../models').News;
 var _			= require('lodash');
 
 exports.getNewsById = function (id, callback) {
-	var proxy = new Eventproxy();	
+	var proxy = new Eventproxy();
 
 	News.findOne({_id: id}, proxy.done(function(news) {
 		if(!news) {
@@ -12,6 +12,13 @@ exports.getNewsById = function (id, callback) {
 		}
 		proxy.emit('news', news);
 	}));
+};
+
+exports.recentNews = function (callback) {
+	
+	News.find({}, function (err, recents) {
+		callback(err, recents);
+	});
 };
 
 exports.createNews = function(title, content, tab, authorId, callback) {
