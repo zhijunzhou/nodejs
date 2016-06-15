@@ -1,17 +1,18 @@
 var express = require('express');
 var router = express.Router();
 var news = require('../controllers/news');
+var user = require('../controllers/user');
 
-/* GET home page. */
+// home page
 router.get('/', function(req, res, next) {
-	// req.session.love = "";
-	res.render('index', { title: req.session.username + '-在线学习管理系统' });
+	res.render('index', {title:"System"});
 });
 
-router.get('/home', function(req, res, next) {
- 	res.render('movie');
-});
+// user
+router.post('/user/create', user.newUser);
 
+// news
 router.get('/news', news.getRecent);
+router.post('/news/create', news.createNews);
 
 module.exports = router;

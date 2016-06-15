@@ -6,15 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var ejs = require('ejs');
-
 var router = require('./routes/index');
-// var users = require('./routes/users');
-// var movie = require('./routes/movie');
-// var caqi = require('./routes/')
-  
-
 var errorHandler = require('errorhandler');
-
 var app = express();
 
 // view engine setup

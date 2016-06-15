@@ -27,16 +27,18 @@ exports.getRecent = function (req, res) {
 }
 
 exports.createNews = function(req, res, next) {
-	var title		= req.body.title || 'test';
+	var title		= req.body.title || 'test001';
 	var tab			= req.body.tab || 'test';
 	var content		= req.body.content || 'test';
 	var author_id	= "test";
 
 	News.createNews(title, content, tab, author_id, function(err, news) {
+
 		if(err) {
-			return next(err);
+			return res.json({error: err.message});
 		}
 
-		console.log('saved successfully!');
+		res.json({news: news});
+
 	});
 };

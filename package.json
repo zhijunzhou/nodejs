@@ -19,6 +19,9 @@
     "moment": "^2.13.0",
     "mongoose": "^4.4.12",
     "morgan": "~1.6.1",
-    "serve-favicon": "~2.3.0"
+    "node-uuid": "^1.4.7",
+    "serve-favicon": "~2.3.0",
+    "utility": "^1.8.0",
+    "validator": "^5.4.0"
   }
 }

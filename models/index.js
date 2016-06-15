@@ -9,5 +9,7 @@ mongoose.connect('mongodb://localhost/node_org', {server:{poolsize:20}}, functio
 });
 
 require('./news');
+require('./user');
 
 exports.News = mongoose.model('News');
+exports.User = mongoose.model('User');
