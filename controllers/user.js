@@ -25,6 +25,9 @@ exports.newUser = function(req, res, next) {
 	if(pass !== rePass) {
 		return ep.emit('prop_err', 'the two password are not matched!');
 	}
+
+	var avatar_url = User.makeGravatar(email);
+	var active = false;
 	
 	User.createUser(loginname, loginname, pass, email, avatar_url, active, function (err, user) {
 		if(err) {
