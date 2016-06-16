@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
 
 // user
 router.post('/user/create', user.newUser);
+router.post('/user/login', user.login);
 
 // news
 router.get('/news', news.getRecent);

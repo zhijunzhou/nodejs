@@ -18,6 +18,14 @@ exports.createUser = function (name, loginname, pass, email, avatar_url, active,
 	user.save(callback);
 };
 
+exports.getUserByMail = function(email, callback) {
+	User.findOne({email:email}, callback);
+};
+
+exports.getUserByLoginName = function (loginName, callback) {
+  User.findOne({'loginname': new RegExp('^'+loginName+'$', "i")}, callback);
+};
+
 var makeGravatar = function (email) {
   return 'http://www.gravatar.com/avatar/' + utility.md5(email.toLowerCase()) + '?size=48';
 };
