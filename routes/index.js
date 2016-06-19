@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var auth = require('../common/auth');
 var news = require('../controllers/news');
 var user = require('../controllers/user');
 
@@ -9,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 // user
-router.post('/user/create', user.newUser);
+router.post('/user/create',auth.sessionCheck, user.newUser);
 router.post('/user/login', user.login);
 
 // news
