@@ -97,17 +97,31 @@ define(['angular', 'require', 'angular-route','bootstrap'], function (angular, r
             })
             .when('/newscenter', {
                 controller: "NewsCenterController",
-                templateUrl: 'views/movie.html'
+                templateUrl: 'views/movie.html',
+                resolve: {
+                    delay: ctrlRegister('NewsCenterController',['controllers/NewsCenterController.js'])
+                }
             })
             .otherwise({
                 redirectTo: '/index'
             });
+
+            function ctrlRegister(ctrlName, ctrlModule) {
+                return function($q) {
+                    var defer = $q.defer();
+                    require(ctrlModule, function(controller) {
+                        $controllerProvider.register(ctrlName, controller);
+                        defer.resolve();
+                    });
+                    return defer.promise;
+                }
+            }
         $locationProvider.html5Mode(true);
     });
 
-    app.controller("NewsCenterController", function ($scope, $http) {
-        console.log('test multiple controller');
-    });
+    // app.controller("NewsCenterController", function ($scope, $http) {
+    //     console.log('test multiple controller');
+    // });
 
     return app;
 });
