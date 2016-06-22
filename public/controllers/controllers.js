@@ -122,7 +122,8 @@ define(['angular'], function (angular) {
                         }
                     }
                     if(flag === false) {
-                        delete $scope.arr[k].content[i];
+                        // delete $scope.arr[k].content[i];
+                        $scope.arr[k].content.splice(i, 1);
                     }
                 }
 
@@ -160,7 +161,8 @@ define(['angular'], function (angular) {
                     }
                 }
                 if(flag === false) {
-                    delete $scope.arr[i];
+                    // delete $scope.arr[i];
+                    $scope.arr.splice(i, 1);
                 }
             }
 
