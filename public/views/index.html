@@ -1,11 +1,11 @@
-<% include header.html %>
-    <div class="container" ng-controller="SNController">
+<% include common/header.html %>
+    <div class="container">
         <% include ../components/topHome.html %>
         
         <!-- public message -->
-        <% include ../components/publicMsg.template.html %>
+        <% include ../components/publicMsg.html %>
 
         <ng-view></ng-view>
 
     </div>
-<% include footer.html %>
+<% include common/footer.html %>

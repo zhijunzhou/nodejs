@@ -6,22 +6,11 @@ define(['angular'], function (angular) {
 
         $scope.sitename = "Hello, Angular JS.";
 
-        $scope.publicMsg = "No Message!";
-
-        $scope.msg_seed = 1000;
-        $scope.the_seed = 2000;
-
-        function mguid() {
-            return String(++$scope.msg_seed);
-        }
-
-        function tguid() {
-            return String(++$scope.the_seed);
-        }
+        $scope.publicMsg = "No Message!";        
 
         $scope.titles = [
             {
-                text:'首页',controls:'#home',href:'index',isActive:true
+                text:'首页',controls:'#home',href:'',isActive:true
             },
             {
                 text:'新闻中心',controls:'#newscenter',href:'newscenter'
@@ -44,7 +33,25 @@ define(['angular'], function (angular) {
             {
                 text:'关于我们',controls:'#aboutus',href:'aboutus'
             }
-        ];
+        ];        
+
+    });
+
+	app.controller('NewsCenterController', function($scope)  {
+		$scope.test = "Yes, I'm here!";
+	});
+
+    app.controller('StudyCenterController', function($scope) {
+        $scope.msg_seed = 1000;
+        $scope.the_seed = 2000;
+
+        function mguid() {
+            return String(++$scope.msg_seed);
+        }
+
+        function tguid() {
+            return String(++$scope.the_seed);
+        }
 
         $scope.messageMap = [
             {
@@ -185,14 +192,7 @@ define(['angular'], function (angular) {
             console.log($scope.arr);
             
         };
-
     });
-
-
-
-	app.controller('NewsCenterController', function($scope)  {
-		console.log($scope);
-	});
 	
 	return app;
 	

@@ -1,0 +1,55 @@
+<div ng-controller="StudyCenterController">
+    <div class="col-md-12">
+        <table class="table table-border">
+            <tr ng-repeat="cb in messageMap">
+                <td>
+                    <a href="#" ng-click="delMsg($index)">
+                        <i class="glyphicon glyphicon-minus-sign"></i>
+                    </a>
+                </td>
+                <td>{{cb.clientBizId}}</td>
+                <td>{{cb.clientBizDetail}}</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <a href="#" ng-click="addMsg()">
+                        <i class="glyphicon glyphicon-plus"></i>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-12">
+        <table class="table table-border">
+            <tr ng-repeat="t in projects">
+                <td>
+                    <a href="#" ng-click="delTheme($index)">
+                        <i class="glyphicon glyphicon-minus-sign"></i>
+                    </a>
+                </td>
+                <td>{{t.projectId}}</td>
+                <td>{{t.projectTitle}}</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <a href="#" ng-click="addTheme()">
+                        <i class="glyphicon glyphicon-plus"></i>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-12">
+        <a href="#" class="btn btn-primary" ng-click="init()">init</a>
+    </div>
+    <div class="col-md-12">
+        <table class="table table-border">
+            <tr ng-repeat="r in arr">
+                <td>{{r.projectId}}-{{r.projectTitle}}</td>
+                <td ng-repeat="c in r.content">
+                    {{c.clientBizDetail}}=>({{c.value}})
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
