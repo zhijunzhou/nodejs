@@ -2,42 +2,13 @@ define(['angular'], function (angular) {
 
 	var app = angular.module('controllers', []);
 
-	app.controller("SNController", function ($scope, $http) {
-
-        $scope.sitename = "Hello, Angular JS.";
-
-        $scope.publicMsg = "No Message!";        
-
-        $scope.titles = [
-            {
-                text:'首页',controls:'#home',href:'',isActive:true
-            },
-            {
-                text:'新闻中心',controls:'#newscenter',href:'newscenter'
-            },
-            {
-                text:'在线学习',controls:'#studycenter',href:'studycenter'
-            },
-            {
-                text:'政策法规',controls:'#rules',href:'rules'
-            },
-            {
-                text:'培训信息',controls:'#training',href:'training'
-            },
-            {
-                text:'公招报名',controls:'#enrollment',href:'enrollment'
-            },
-            {
-                text:'资料下载',controls:'#matirial',href:'matirial'
-            },
-            {
-                text:'关于我们',controls:'#aboutus',href:'aboutus'
-            }
-        ];        
-
+	app.controller("HomeController", function ($scope, $http) {
+        $scope.prod_intro = "时间笔记，时间轴上的笔记！";
+        $scope.start      = "开启时间之旅";
+        $scope.login_url  = "login";
     });
 
-	app.controller('NewsCenterController', function($scope)  {
+	app.controller('LoginController', function($scope)  {
 		$scope.test = "Yes, I'm here!";
 	});
 

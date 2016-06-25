@@ -1,49 +1,115 @@
-#top-home-nav {
-    background: url('/images/top_bg.png') no-repeat center center;
-    background-size: cover;
-    height: 320px;
+body {
+    margin:0;
+    padding: 0;
+    background: #eee;
+    background: url('/images/bg.png') 0 0 repeat-x;
+    height: 100%;
+    width: 100%;
+    min-width: 356px;
+    font: 12px/1 "Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
     color: #fff;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
 }
-#top-home-nav .main-map{
-    height: 25px;
+:focus, a, label {
+    outline: 0 none;
 }
-#top-home-nav .main-title {
-    height: 253px;
+a, img, input {
+    border: 0 none;
 }
-#top-home-nav .main-nav-container {
-    height: 42px;
-    background-color:rgba(51, 122,183, 0.5);
+
+a, a:hover {
+    text-decoration: none;
 }
-#main-nav .nav-tabs {
-    border: 0;
-}
-#main-nav ul li {
-    width: 120px;
-}
-#main-nav ul li a {
-    background: rgba(51, 122,183, 0.5);
+
+.white {
     color: #fff;
-    border: 0;
+}
+
+.logo a {
+    font-size: 48px;
+    color: #fff;
+}
+.logo-area {
+    margin-top: 18em;
+}
+.prod-intro {
+    font-size: 16px;
+    font-weight: 400;
+    color: #bdc8d3;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.loginbutton a {
+    display: inline-block;
+    width: 16em;
+    height: 40px;
+    vertical-align: middle;
+    border-radius: 30px;
+    font-size: 16px;
+    line-height: 40px;
+    background: #2C759A;
+    color: #c1c8d1;
+    border-color: #598fab;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.login-container {
+    padding: 20px 10px 50px 10px;
+}
+
+.btnadpt {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    margin-bottom: 14px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.labelbox  {
+    min-height: 50px;
+    display: block;
+    margin-bottom: 14px;
+    padding: 0;
+    border: 1px solid #e0e0e0;
+}
+
+.labelbox input {
+    width: 100%;
+    height: 100%;
+    padding: 13px 16px 13px 14px;
+    display: block;
+    background: transparent;
+}
+
+.layout {
+    max-width: 524px;
+    margin: 0 auto 20px;
+    position: relative;
+    min-height: 620px;
+}
+
+.login-container .login-area {
+    padding: 35px 0;
+}
+
+.login-container .login-area .user-top,.pwd-bottom {
     border-radius: 0;
 }
-#main-nav .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, 
-.nav-tabs>li.active>a:hover {
-    background-color: #0ba0c1;
-    border: 0;
-    color: #fff;
-    box-shadow: 0 -2px #385caa;
+.oth_type_tit  {
+    margin-top: 20px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 10px;
 }
-
-.public-msg {
-    font-size: 13px;
-    color: #444;
-}
-.home-panel-left {
-    padding-left: 0;
-}
-
-.home-panel-right {
-    padding-right:0;
+.oth_type_txt {
+    font-size: 14px;
+    color: #b0b0b0;
+    margin: 0 auto;
+    text-align: center;
+    border-bottom: 0;
+    width: auto;
 }

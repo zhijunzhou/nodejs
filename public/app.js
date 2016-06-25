@@ -1,20 +1,24 @@
 define(['angular', 'require', 'angular-route','bootstrap','controllers','filters','directives'], function (angular, require) {
-    var app = angular.module("SNApp", ['ngRoute','controllers','filters','directives']);
+    var app = angular.module("TimeNote", ['ngRoute','controllers','filters','directives']);
 
     app.config(function($routeProvider,$locationProvider,$controllerProvider) {
 
         $routeProvider
             .when('/', {
-                controller: "SNController",
-                templateUrl:'views/home.html'
+                controller: "HomeController",
+                templateUrl:'views/tpls/home.html'
             })
-            .when('/newscenter', {
-                controller: "NewsCenterController",
-                templateUrl: 'views/newscenter.html'
+            .when('/login', {
+                controller: "LoginController",
+                templateUrl: 'views/tpls/login.html'
             })
             .when('/studycenter', {
                 controller: "StudyCenterController",
-                templateUrl: 'views/studycenter.html'
+                templateUrl: 'views/tpls/studycenter.html'
+            })
+            .when('/rules', {
+                controller: "StudyCenterController",
+                templateUrl: 'views/tpls/rules.html'
             })
             .otherwise({
                 redirectTo: '/'

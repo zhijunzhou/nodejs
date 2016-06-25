@@ -16,15 +16,14 @@ exports.showEdit = function (req, res, next) {
 };
 
 exports.getRecent = function (req, res) {
-	
 	News.recentNews(function (err, recents) {
 		if(err) {
 			res.json({error:err.message});
 			return;
 		}
 		res.json({recents: recents});
-	})
-}
+	});
+};
 
 exports.createNews = function(req, res, next) {
 	var title		= req.body.title || 'test001';

@@ -5,6 +5,7 @@ require.config({
         bootstrap: 'http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min',
         angular: 'http://cdn.bootcss.com/angular.js/1.5.0/angular',
         'angular-route': 'http://cdn.bootcss.com/angular.js/1.5.0/angular-route',
+        'highcharts':'http://cdn.bootcss.com/highcharts/4.2.5/highcharts',
         controllers:'controllers/controllers',
         filters: 'filters/filters',
         directives: 'directives/directives'
@@ -28,6 +29,10 @@ require.config({
         'angular-route':{
             deps: ['angular'],
             exports: 'ngRouteModule'
+        },
+        'highcharts-ng':{
+            deps:['highcharts'],
+            exports:'highcharts-ng'
         }
     }
     // urlArgs: "t=" + (new Date()).getTime()
@@ -35,5 +40,5 @@ require.config({
 
 require(["angular","app"],function(angular,app){
     //angularjs start
-    angular.bootstrap(document,['SNApp']);
+    angular.bootstrap(document,['TimeNote']);
 });
