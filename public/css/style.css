@@ -84,6 +84,7 @@ a, a:hover {
     padding: 13px 16px 13px 14px;
     display: block;
     background: transparent;
+    border-radius: 0;
 }
 
 .layout {
