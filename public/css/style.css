@@ -55,7 +55,7 @@ a, a:hover {
 }
 
 .login-container {
-    padding: 20px 10px 50px 10px;
+    padding: 10em 1em 10em 1em;
 }
 
 .btnadpt {
@@ -112,4 +112,44 @@ a, a:hover {
     text-align: center;
     border-bottom: 0;
     width: auto;
+}
+.icons-container {
+    margin-bottom: 20px;
+}
+.icon-type {
+    width: 30px;
+    height: 30px;
+    margin:0 12px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #0288d1;
+    filter: grayscale(100%);
+}
+.btn-icontype {
+    background: url('/images/icons_type.png');
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
+.icon-type .btn-icontype {
+    display: block;
+    margin:4px auto 0;
+}
+.icon-default-qq {
+    background-position: -19px 0;
+}
+.icon-default-weibo {
+    background-position: -38px 0;
+}
+.icon-default-alipay {
+    background-position: -57px 0;
+    width: 25px;
+}
+.icon-default-weixin {
+    background-position: -84px 0;
+    width: 23px;
+}
+.links-area a {
+    margin: 0 20px;
+    color: #bdc8d3;
 }
