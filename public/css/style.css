@@ -9,6 +9,9 @@ body {
     font: 12px/1 "Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
     color: #fff;
 }
+button, input, select, textarea {
+    font-family: arial, "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
 :focus, a, label {
     outline: 0 none;
 }
@@ -54,6 +57,22 @@ a, a:hover {
     border-style: solid;
 }
 
+.btn332 {
+    width: 330px;
+    height: 42px;
+    margin:0 auto;
+    line-height: 42px;
+    text-align: center;
+    font-size: 14px;
+    display: block;
+    cursor: pointer;
+}
+
+.btn_reg {
+    background-color: #2C759A;
+    color: #fff; 
+}
+
 .login-container {
     padding: 10em 1em 10em 1em;
 }
@@ -75,7 +94,7 @@ a, a:hover {
     display: block;
     margin-bottom: 14px;
     padding: 0;
-    border: 1px solid #e0e0e0;
+    /*border: 1px solid #e0e0e0;*/
 }
 
 .labelbox input {

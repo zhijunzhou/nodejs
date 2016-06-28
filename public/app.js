@@ -12,9 +12,9 @@ define(['angular', 'require', 'angular-route','bootstrap','controllers','filters
                 controller: "LoginController",
                 templateUrl: 'views/tpls/login.html'
             })
-            .when('/studycenter', {
-                controller: "StudyCenterController",
-                templateUrl: 'views/tpls/studycenter.html'
+            .when('/register', {
+                controller: "RegisterController",
+                templateUrl: 'views/tpls/register.html'
             })
             .when('/rules', {
                 controller: "StudyCenterController",

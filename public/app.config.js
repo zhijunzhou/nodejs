@@ -2,6 +2,7 @@
 require.config({
     paths:{
         jquery: 'http://cdn.bootcss.com/jquery/1.11.2/jquery.min',
+        jqValidate:'http://cdn.bootcss.com/jquery-validate/1.11.1/jquery.validate.min',
         bootstrap: 'http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min',
         angular: 'http://cdn.bootcss.com/angular.js/1.5.0/angular',
         'angular-route': 'http://cdn.bootcss.com/angular.js/1.5.0/angular-route',
@@ -33,6 +34,11 @@ require.config({
         'highcharts-ng':{
             deps:['highcharts'],
             exports:'highcharts-ng'
+        },
+        jqValidate: {
+            deps:[
+              'jquery'
+          ]
         }
     }
     // urlArgs: "t=" + (new Date()).getTime()

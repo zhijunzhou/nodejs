@@ -15,7 +15,7 @@ router.get('/login', function(req, res, next) {
 });
 
 // user
-router.post('/user/create',auth.sessionCheck, user.newUser);
+router.post('/user/create', user.newUser);
 router.post('/user/login', user.login);
 
 // news

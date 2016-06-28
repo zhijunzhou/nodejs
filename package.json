@@ -21,6 +21,7 @@
     "mongoose": "^4.4.12",
     "morgan": "~1.6.1",
     "node-uuid": "^1.4.7",
+    "nodemailer": "^2.4.2",
     "serve-favicon": "~2.3.0",
     "utility": "^1.8.0",
     "validator": "^5.4.0"
