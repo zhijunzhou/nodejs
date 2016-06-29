@@ -1,6 +1,6 @@
-define(['angular', 'jqValidate'], function(angular, jqValidate) {
+define(['angular'], function(angular) {
 
-    var app = angular.module('controllers', []);
+    var app = angular.module('controllers', ['services']);
 
     app.controller("CommonController", function($scope) {
         $scope.login_url = "login";
@@ -18,24 +18,24 @@ define(['angular', 'jqValidate'], function(angular, jqValidate) {
 
     });
 
-    app.controller('RegisterController', function($scope) {
+    app.controller('RegisterController', ['UserService','$scope', function($scope, UserService) {
         $scope.password = "";
         $scope.repeatpwd = "";
         $scope.loginname = "";
 
         $scope.register = function() {
-            
+            console.log('dd');
         };
 
         $scope.checkPasswords = function() {
             // set customer error
-            if($scope.password === $scope.repeatpwd) {
-                document.getElementById("pwd1").setCustomValidity("");
-            } else {
-                document.getElementById("pwd1").setCustomValidity("两次输入的密码不匹配");
-            }
+            // if($scope.password === $scope.repeatpwd) {
+            //     document.getElementById("pwd1").setCustomValidity("");
+            // } else {
+            //     document.getElementById("pwd1").setCustomValidity("两次输入的密码不匹配");
+            // }
         };
-    });
+    }]);
 
     app.controller('StudyCenterController', function($scope) {
         $scope.msg_seed = 1000;

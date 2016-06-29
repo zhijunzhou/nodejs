@@ -9,7 +9,8 @@ require.config({
         'highcharts':'http://cdn.bootcss.com/highcharts/4.2.5/highcharts',
         controllers:'controllers/controllers',
         filters: 'filters/filters',
-        directives: 'directives/directives'
+        directives: 'directives/directives',
+        services:'services/services'
     },
     map:{
       
