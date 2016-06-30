@@ -13,7 +13,7 @@ define(['angular', 'require', 'angular-route','bootstrap','controllers','filters
                 templateUrl: 'views/tpls/login.html'
             })
             .when('/register', {
-                controller: "RegisterController",
+                controller: "RegisterUserController",
                 templateUrl: 'views/tpls/register.html'
             })
             .when('/rules', {

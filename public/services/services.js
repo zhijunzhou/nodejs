@@ -1,10 +1,13 @@
 define(['angular'], function (angular) {
 
-	return angular.module('services', [])
+	var app = angular.module('services', []);
 
-	.service('UserService', function($http) {
-        
-        return {};
+	app.service('UserService', function() {
+        this.signup = function (x) {
+	        return x.toString(16);
+	    }
     });
+
+    return app;
 
 });

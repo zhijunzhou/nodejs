@@ -1,6 +1,6 @@
-define(['angular'], function(angular) {
+define(['angular', 'services'], function(angular, services) {
 
-    var app = angular.module('controllers', ['services']);
+    var app = angular.module('controllers', []);
 
     app.controller("CommonController", function($scope) {
         $scope.login_url = "login";
@@ -18,24 +18,24 @@ define(['angular'], function(angular) {
 
     });
 
-    app.controller('RegisterController', ['UserService','$scope', function($scope, UserService) {
+    app.controller('RegisterUserController',function($scope,UserService) {
         $scope.password = "";
         $scope.repeatpwd = "";
         $scope.loginname = "";
 
-        $scope.register = function() {
-            console.log('dd');
+        $scope.registerUser = function() {
+            $scope.loginname = String(UserService.signup($scope));
         };
 
         $scope.checkPasswords = function() {
             // set customer error
-            // if($scope.password === $scope.repeatpwd) {
-            //     document.getElementById("pwd1").setCustomValidity("");
-            // } else {
-            //     document.getElementById("pwd1").setCustomValidity("两次输入的密码不匹配");
-            // }
+            if($scope.password === $scope.repeatpwd) {
+                document.getElementById("pwd1").setCustomValidity("");
+            } else {
+                document.getElementById("pwd1").setCustomValidity("两次输入的密码不匹配");
+            }
         };
-    }]);
+    });
 
     app.controller('StudyCenterController', function($scope) {
         $scope.msg_seed = 1000;
