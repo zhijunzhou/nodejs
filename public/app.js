@@ -1,5 +1,5 @@
-define(['angular', 'require', 'angular-route','bootstrap','controllers','filters','directives','services'], function (angular, require) {
-    var app = angular.module("TimeNote", ['ngRoute','controllers','filters','directives','services']);
+define(['angular', 'require', 'angular-route','angular-resource','bootstrap','controllers','filters','directives','services'], function (angular, require) {
+    var app = angular.module("TimeNote", ['ngRoute','ngResource','controllers','filters','directives','services']);
 
     app.config(function($routeProvider,$locationProvider,$controllerProvider) {
 

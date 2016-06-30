@@ -14,17 +14,26 @@ define(['angular', 'services'], function(angular, services) {
 
     });
 
-    app.controller('LoginController', function($scope) {
+    app.controller('LoginController', function($scope, UserService) {
+        $scope.password = "123456";
+        $scope.loginname = "zhi@hp.com";
 
+        $scope.userLogin = function() {
+            UserService.signin($scope).query(function(d) {
+                console.log(d);
+            });
+        };
     });
 
     app.controller('RegisterUserController',function($scope,UserService) {
-        $scope.password = "";
-        $scope.repeatpwd = "";
-        $scope.loginname = "";
+        $scope.password = "123456";
+        $scope.repeatpwd = "123456";
+        $scope.loginname = "zhi@hp.com";
 
         $scope.registerUser = function() {
-            $scope.loginname = String(UserService.signup($scope));
+            UserService.signup($scope).save(function(d) {
+                console.log(d);
+            });
         };
 
         $scope.checkPasswords = function() {

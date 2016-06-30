@@ -6,7 +6,7 @@ require.config({
         'bootstrap': 'http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min',
         'angular': 'http://cdn.bootcss.com/angular.js/1.5.0/angular',
         'angular-route': 'http://cdn.bootcss.com/angular.js/1.5.0/angular-route',
-        'angular-resource':'http://cdn.bootcss.com/angular-resource/1.5.0/angular-resource.js',
+        'angular-resource':'http://cdn.bootcss.com/angular-resource/1.5.0/angular-resource',
         'highcharts':'http://cdn.bootcss.com/highcharts/4.2.5/highcharts',
         'controllers':'controllers/controllers',
         'filters': 'filters/filters',
@@ -33,7 +33,7 @@ require.config({
             deps: ['angular']
         },
         'angular-resource':{
-            deps: ['angular']
+            deps: ['angular'],
         },
         'highcharts-ng':{
             deps:['highcharts'],

@@ -5,8 +5,8 @@ var Eventproxy     = require('eventproxy');
 var tools          = require('../common/tools');
 
 exports.login = function(req, res, next){
-	var loginname	= validator.trim(req.body.loginname);
-	var pass 		= validator.trim(req.body.pass);
+	var loginname	= validator.trim(req.query.loginname);
+	var pass 		= validator.trim(req.query.pass);
 	var ep 			= new Eventproxy();
 
 	ep.fail(next);
@@ -52,10 +52,10 @@ exports.login = function(req, res, next){
 
 exports.newUser = function(req, res, next) {
 	// name, loginname, pass, email, avatar_url, active,
-	var pass		= validator.trim(req.body.pass);
-	var loginname	= validator.trim(req.body.loginname).toLowerCase();
-	var email		= validator.trim(req.body.email).toLowerCase();
-	var rePass		= validator.trim(req.body.re_pass);
+	var pass		= validator.trim(req.query.pass);
+	var loginname	= validator.trim(req.query.loginname).toLowerCase();
+	var email		= validator.trim(req.query.email).toLowerCase();
+	var rePass		= validator.trim(req.query.re_pass);
 	
 	var ep = new Eventproxy();
 	ep.fail(next);
@@ -82,7 +82,7 @@ exports.newUser = function(req, res, next) {
 			if(err) {
 				console.log(err);
 				return next(err);
-			}		
+			}
 			res.json(user);
 		});
 	}));
