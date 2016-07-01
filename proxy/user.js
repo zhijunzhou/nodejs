@@ -22,6 +22,10 @@ exports.getUserByMail = function(email, callback) {
 	User.findOne({email:email}, callback);
 };
 
+exports.countUsersByMail = function (email, callback) {
+	User.count({email:email}, callback);
+}
+
 exports.getUserByLoginName = function (loginName, callback) {
   User.findOne({'loginname': new RegExp('^'+loginName+'$', "i")}, callback);
 };

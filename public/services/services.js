@@ -4,25 +4,18 @@ define(['angular', ''], function(angular) {
 
     app.service('UserService', function($resource) {
 
-        this.signup = function(scope) {
-            var loginname = scope.loginname;
-            var password = scope.password;
+        this.signup = function() {
             return $resource('/user/create', {}, {
                 save: {
-                    method: 'POST',
-                    params: { loginname: loginname, pass: password, email: loginname, re_pass: password }
+                    method: 'POST'
                 }
             });
         };
 
-        this.signin = function(scope) {
-            var loginname = scope.loginname;
-            var password = scope.password;
-
+        this.signin = function() {
             return $resource('/user/login', {}, {
                 query: {
-                    method: 'POST',
-                    params: {loginname: loginname, pass: password}
+                    method: 'POST'
                 }
             });
         };

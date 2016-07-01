@@ -19,26 +19,43 @@ define(['angular', 'services'], function(angular, services) {
         $scope.loginname = "zhi@hp.com";
 
         $scope.userLogin = function() {
-            UserService.signin($scope).query(function(d) {
-                console.log(d);
+            var User = UserService.signin();
+
+            User.query({loginname: $scope.loginname, pass: $scope.password}).$promise.then(function (data) {
+                alert('登录成功！');
+            }, function (err) {
+                if(err.status === 403) {
+                    alert('您的邮箱还没有被激活，请先激活邮箱！');
+                }
             });
         };
     });
 
-    app.controller('RegisterUserController',function($scope,UserService) {
+    app.controller('RegisterUserController', function($scope, UserService) {
         $scope.password = "123456";
         $scope.repeatpwd = "123456";
         $scope.loginname = "zhi@hp.com";
 
         $scope.registerUser = function() {
-            UserService.signup($scope).save(function(d) {
-                console.log(d);
+            var User = UserService.signup();
+
+            User.save({ 
+                loginname: $scope.loginname, 
+                pass: $scope.password, 
+                email: $scope.loginname, 
+                re_pass: $scope.password
+            }).$promise.then(function(data) {
+                alert('注册成功！');
+            }, function(error) {
+                if (error.status === 409) {
+                    alert('您的邮箱已经被注册过了！');
+                }
             });
         };
 
         $scope.checkPasswords = function() {
             // set customer error
-            if($scope.password === $scope.repeatpwd) {
+            if ($scope.password === $scope.repeatpwd) {
                 document.getElementById("pwd1").setCustomValidity("");
             } else {
                 document.getElementById("pwd1").setCustomValidity("两次输入的密码不匹配");
