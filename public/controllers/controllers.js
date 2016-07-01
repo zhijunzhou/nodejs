@@ -31,7 +31,7 @@ define(['angular', 'services'], function(angular, services) {
         };
     });
 
-    app.controller('RegisterUserController', function($scope, UserService) {
+    app.controller('RegisterUserController', function($scope, $location, UserService) {
         $scope.password = "123456";
         $scope.repeatpwd = "123456";
         $scope.loginname = "zhi@hp.com";
@@ -46,6 +46,8 @@ define(['angular', 'services'], function(angular, services) {
                 re_pass: $scope.password
             }).$promise.then(function(data) {
                 alert('注册成功！');
+                // redirect to login
+                $location.url('/login');
             }, function(error) {
                 if (error.status === 409) {
                     alert('您的邮箱已经被注册过了！');
