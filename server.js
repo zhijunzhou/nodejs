@@ -8,12 +8,20 @@ var session = require('express-session');
 var ejs = require('ejs');
 var router = require('./routes/index');
 var errorHandler = require('errorhandler');
+var requestLog = require('./middlewares/request_log');
 var app = express();
+
+var staticDir = path.join(__dirname, 'public');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'public/views'));
 app.engine('.html', ejs.__express);
 app.set('view engine', 'html');
+
+app.use('/public', express.static(staticDir));
+
+// Request logger
+app.use(requestLog);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

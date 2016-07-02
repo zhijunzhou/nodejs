@@ -4,3 +4,7 @@
 app/models/blog.js
 app/models/CRUD.js
 app/models/PersonVirtual.js
+logs/cheese.log
+logs/cheese.log.1
+logs/cheese.log.2
+logs/cheese.log.3
