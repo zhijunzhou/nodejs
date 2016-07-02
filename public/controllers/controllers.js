@@ -1,6 +1,6 @@
 define(['angular', 'services'], function(angular, services) {
 
-    var app = angular.module('controllers', []);
+    var app = angular.module('controllers', ['highcharts-ng']);
 
     app.controller("CommonController", function($scope) {
         $scope.login_url = "login";
@@ -8,9 +8,51 @@ define(['angular', 'services'], function(angular, services) {
         $scope.forgetPassword = "forgetPassword";
         $scope.prod_intro = "时间笔记，时间轴上的笔记！";
         $scope.start = "开启时间之旅";
+
+
     });
 
-    app.controller("HomeController", function($scope, $http) {
+    app.controller("HomeController", function($scope) {
+
+        var percentage = [{
+            name: "感情",
+            y: 18.55
+        }, {
+            name: "技术",
+            y: 19.99
+        }, {
+            name: "美食",
+            y: 54.13
+        }, {
+            name: "体育",
+            y: 1.63
+        }, {
+            name: "其他",
+            y: 5.21
+        }];
+
+
+
+        $scope.chartConfig = {
+            options: {
+                chart: {
+                    type: 'pie',
+                    backgroundColor: 'rgba(0,0,0,0)'
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '占比',
+                data: percentage
+            }],
+            tooltip: {
+                percentageDecimals: 1,
+            },
+            title: {
+                text: ''
+            },
+            loading: false
+        };
 
     });
 
@@ -21,10 +63,10 @@ define(['angular', 'services'], function(angular, services) {
         $scope.userLogin = function() {
             var User = UserService.signin();
 
-            User.query({loginname: $scope.loginname, pass: $scope.password}).$promise.then(function (data) {
+            User.query({ loginname: $scope.loginname, pass: $scope.password }).$promise.then(function(y) {
                 alert('登录成功！');
-            }, function (err) {
-                if(err.status === 403) {
+            }, function(err) {
+                if (err.status === 403) {
                     alert('您的邮箱还没有被激活，请先激活邮箱！');
                 }
             });
@@ -39,12 +81,12 @@ define(['angular', 'services'], function(angular, services) {
         $scope.registerUser = function() {
             var User = UserService.signup();
 
-            User.save({ 
-                loginname: $scope.loginname, 
-                pass: $scope.password, 
-                email: $scope.loginname, 
+            User.save({
+                loginname: $scope.loginname,
+                pass: $scope.password,
+                email: $scope.loginname,
                 re_pass: $scope.password
-            }).$promise.then(function(data) {
+            }).$promise.then(function(y) {
                 alert('注册成功！');
                 // redirect to login
                 $location.url('/login');

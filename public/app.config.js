@@ -8,6 +8,7 @@ require.config({
         'angular-route': 'http://cdn.bootcss.com/angular.js/1.5.0/angular-route',
         'angular-resource':'http://cdn.bootcss.com/angular-resource/1.5.0/angular-resource',
         'highcharts':'http://cdn.bootcss.com/highcharts/4.2.5/highcharts',
+        'highcharts-ng':'http://cdn.bootcss.com/highcharts-ng/0.0.11/highcharts-ng',
         'controllers':'controllers/controllers',
         'filters': 'filters/filters',
         'directives': 'directives/directives',
@@ -29,6 +30,10 @@ require.config({
         angular:{
             exports:'angular'
         },
+        'highcharts':{
+            deps:['jquery'],
+            exports:'Highcharts'
+        },
         'angular-route':{
             deps: ['angular']
         },
@@ -36,8 +41,7 @@ require.config({
             deps: ['angular'],
         },
         'highcharts-ng':{
-            deps:['highcharts'],
-            exports:'ngHighcharts'
+            deps:['angular','highcharts']
         },
         jqValidate: {
             deps:[
