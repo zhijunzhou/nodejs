@@ -8,3 +8,4 @@ logs/cheese.log
 logs/cheese.log.1
 logs/cheese.log.2
 logs/cheese.log.3
+public/css/bootstrap*.css
