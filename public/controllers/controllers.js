@@ -1,11 +1,12 @@
 define(['angular', 'services'], function(angular, services) {
 
-    var app = angular.module('controllers', ['highcharts-ng']);
+    var app = angular.module('controllers', ['highcharts-ng', 'ui.tinymce']);
 
     app.controller("CommonController", function($scope) {
         $scope.login_url = "login";
         $scope.register = "register";
         $scope.forgetPassword = "forgetPassword";
+        $scope.advanceExperience = "newNote";
         $scope.prod_intro = "时间笔记，时间轴上的笔记！";
         $scope.start = "开启时间之旅";
 
@@ -40,6 +41,41 @@ define(['angular', 'services'], function(angular, services) {
                     backgroundColor: 'rgba(0,0,0,0)'
                 }
             },
+            title: {
+                text: ''
+            },
+            plotOptions: {
+                pie: {
+                    size: 80,
+                    innerSize: '20',
+                    colors: [
+                        'red',
+                        '#0d233a',
+                        '#8bbc21',
+                        '#910000',
+                        '#1aadce'
+                    ],
+                    dataLabels: {
+                        distance: 15,
+                        formatter: function() {
+                            return this.y + "%";
+                        },
+                        style: {
+                            fontweight: "bold",
+                            color: '#fff'
+                        },
+                        enabled: true
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                x: 90,
+                y: 45,
+                labelFormatter: function() {
+                    return this.name + '(' + this.y + '%)';
+                }
+            },
             series: [{
                 type: 'pie',
                 name: '占比',
@@ -47,9 +83,6 @@ define(['angular', 'services'], function(angular, services) {
             }],
             tooltip: {
                 percentageDecimals: 1,
-            },
-            title: {
-                text: ''
             },
             loading: false
         };
@@ -105,6 +138,20 @@ define(['angular', 'services'], function(angular, services) {
                 document.getElementById("pwd1").setCustomValidity("两次输入的密码不匹配");
             }
         };
+    });
+
+    app.controller('NewNoteController', function($scope) {
+        $scope.tinymceOptions = {
+            handle_event_callback: function(e) {
+                console.log(e);
+            },
+            inline: false,
+            skin: 'lightgray',
+            theme : 'modern',
+            menubar: false,
+            statusbar: false
+        };
+        $scope.noteContent = "niceMCE";
     });
 
     app.controller('StudyCenterController', function($scope) {
