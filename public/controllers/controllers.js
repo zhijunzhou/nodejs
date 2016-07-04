@@ -91,7 +91,7 @@ define(['angular', 'services'], function(angular, services) {
 
     app.controller('LoginController', function($scope, UserService) {
         $scope.password = "123456";
-        $scope.loginname = "zhi@hp.com";
+        $scope.loginname = "2050588049@qq.com";
 
         $scope.userLogin = function() {
             var User = UserService.signin();
@@ -140,7 +140,7 @@ define(['angular', 'services'], function(angular, services) {
         };
     });
 
-    app.controller('NewNoteController', function($scope) {
+    app.controller('NewNoteController', function($scope, NoteService) {
         $scope.tinymceOptions = {
             handle_event_callback: function(e) {
                 console.log(e);
@@ -151,7 +151,23 @@ define(['angular', 'services'], function(angular, services) {
             menubar: false,
             statusbar: false
         };
-        $scope.noteContent = "niceMCE";
+        $scope.content = "Test content";
+        $scope.title = "Test title";
+        $scope.tab = "Test Tab";
+
+        $scope.newNote = function() {
+            var Note = NoteService.createNote();
+
+            Note.save({
+                title: $scope.title,
+                content:$scope.content,
+                tab:$scope.tab
+            }).$promise.then(function(y) {
+                alert('创建成功！');
+            }, function(error) {
+                alert('创建失败！');
+            });
+        };
     });
 
     app.controller('StudyCenterController', function($scope) {

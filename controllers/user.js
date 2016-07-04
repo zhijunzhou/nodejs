@@ -1,10 +1,10 @@
 var User = require('../proxy').User;
 var validator = require('validator');
-// var uuid           = require('node-uuid');
 var Eventproxy = require('eventproxy');
 var tools = require('../common/tools');
 var mail = require('../common/mail');
-var utility        = require('utility');
+var utility = require('utility');
+var authMiddleWare = require('../middlewares/auth');
 
 exports.login = function(req, res, next) {
     var loginname = validator.trim(req.body.loginname);
@@ -44,10 +44,15 @@ exports.login = function(req, res, next) {
                 res.status(403);
 
                 // resend active email
-                mail.sendActiveMail(user.email, utility.md5(user.email + user.pass + 'time_note'), loginname)
+                mail.sendActiveMail(user.email, utility.md5(user.email + user.pass + 'time_note'), loginname);
 
                 return res.json({ error: "Forbidden" });
             }
+
+            // set session
+            authMiddleWare.gen_session(user, res);
+
+            req.session.user = user;
 
             res.json({ isSuccess: true });
 

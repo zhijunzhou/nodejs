@@ -1,8 +1,10 @@
+var config = require('./config');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
+// var cookieParser = require('cookie-parser');
+var auth = require('./middlewares/auth');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var ejs = require('ejs');
@@ -28,12 +30,12 @@ app.use(requestLog);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(require('cookie-parser')(config.session_secret));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use(session({
-  secret: '12345',
-  name:'testapp',
+  secret: 'time_note',
+  name:'time_note',
   cookie: {maxAge: 8000},
   resave: false,
   saveUninitialized: true,

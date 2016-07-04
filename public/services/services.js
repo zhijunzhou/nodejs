@@ -22,6 +22,16 @@ define(['angular', ''], function(angular) {
 
     });
 
+    app.service('NoteService', function($resource) {
+        this.createNote = function() {
+            return $resource('/note/create', {}, {
+                save: {
+                    method: "POST"
+                }
+            });
+        };
+    });
+
     return app;
 
 });

@@ -1,6 +1,11 @@
-<div class="wysiwyg-title">
-	<input type="text" class="form-control white" placeholder="笔记标题" />
-</div>
-<div class="text-center wysiwyg-container">
-	<div ui-tinymce="tinymceOptions" ng-model="noteContent"></div>
-</div>
+<form ng-submit="newNote()" ng-controller="NewNoteController">
+	<div class="wysiwyg-title">
+		<input type="text" class="form-control white" ng-model="title" placeholder="笔记标题" />
+	</div>
+	<div class="text-center wysiwyg-container">
+		<div ui-tinymce="tinymceOptions" ng-model="content"></div>
+	</div>
+	<div class="text-center">
+		<input type="submit" class="btn btn-primay" value="创建" />
+	</div>
+</form>
