@@ -11,6 +11,14 @@ define(['angular'], function (angular) {
      
     });
 
+    app.directive('emptyLine', function() {
+        return {
+            restrict: "E",
+            replace: true,
+            template: '<div class="col-xs-12">&nbsp;</div>'
+        };
+    });
+
     app.directive('userLogin', function() {
         return {
             restrict: "E",

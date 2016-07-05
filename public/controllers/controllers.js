@@ -1,4 +1,4 @@
-define(['angular', 'services'], function(angular, services) {
+define(['angular', 'services','directives'], function(angular, services, directives) {
 
     var app = angular.module('controllers', ['highcharts-ng', 'ui.tinymce']);
 
