@@ -1,14 +1,24 @@
+html {
+    height: 100%;
+}
 body {
     margin:0;
     padding: 0;
-    background: #eee;
-    background: url('/images/bg.png') 0 0 repeat-x;
     height: 100%;
-    width: 100%;
     min-width: 356px;
     font: 12px/1 "Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
-    color: #fff;
 }
+.body-wrapper {
+    height: 100%;
+}
+
+.body-container {
+    background: #eee;
+    height: 100%;
+    width: 100%;
+    background: url('/images/bg.png') 0 0 repeat-x;
+}
+
 button, input, select, textarea {
     font-family: arial, "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 }
@@ -174,5 +184,19 @@ a, a:hover {
     color: #bdc8d3;
 }
 .wysiwyg-container {
+    height: 100%;
+}
+.sidebar-toggle {
+    height: auto;
+}
+.wrapper {
+    height: 100%;
+    position: inherit;
+}
+.content-wrapper {
+    height: 100%;
+    overflow: scroll;
+}
+.hold-transition {
     height: 100%;
 }

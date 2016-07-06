@@ -1,51 +1,53 @@
-<div class="container" ng-controller="RegisterUserController">
-	<div class="layout">
-		<div class="login-container">
-			<div class="col-xs-12 text-center">
-				<div class="logo"><a href="/">Time Note</a></div>		
-			</div>
-			<form name="registerForm" ng-submit="registerUser()">
-				<div class="col-xs-12 text-center login-area">
-					<div class="col-xs-12">
-						<label class="labelbox">
-							<input type="email" class="form-control white" ng-model="loginname" required placeholder="邮箱" />
-						</label>
-					</div>
-					<div class="col-xs-12">
-						<label class="labelbox">					
-							<input type="password" id="pwd1" class="form-control white" ng-model="password" minlength="6" required placeholder="密码" ng-change="checkPasswords()" />
-						</label>
-					</div>
-					<div class="col-xs-12">
-						<label class="labelbox">					
-							<input type="password" id="pwd2" class="form-control white" ng-model="repeatpwd" minlength="6" required placeholder="确认密码" ng-change="checkPasswords()" />
-						</label>
-					</div>
-				</div>
-				<div class="col-xs-12 text-center">					
-						<input type="submit" class="btn332 btn_reg" value="立即注册" />			
-				</div>
-			</form>
-			<div class="col-xs-12 text-center">
-				<fieldset class="oth_type_tit">
-					<legend align="center" class="oth_type_txt">其他方式登录</legend>
-				</fieldset>
-			</div>
-			<div class="col-xs-12 text-center">
-                 <div class="icons-container">
-	                 <a href="#" class="icon-type"><i class="btn-icontype icon-default-qq"></i></a>
-	                 <a href="#" class="icon-type"><i class="btn-icontype icon-default-weibo"></i></a>
-	                 <a href="#" class="icon-type"><i class="btn-icontype icon-default-alipay"></i></a>
-	                 <a href="#" class="icon-type"><i class="btn-icontype icon-default-weixin"></i></a>
-                 </div>
-			</div>
-			<div class="col-xs-12 text-center">
-				<div class="links-area">
-					<a ng-href="{{login_url}}">前往登录</a>
-					<a ng-href="{{forgetPassword}}">忘记密码</a>
-					<a ng-href="{{advanceExperience}}">功能提前体验</a>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="body-container">
+    <div class="container" ng-controller="RegisterUserController">
+        <div class="layout">
+            <div class="login-container">
+                <div class="col-xs-12 text-center">
+                    <div class="logo"><a href="/">Time Note</a></div>
+                </div>
+                <form name="registerForm" ng-submit="registerUser()">
+                    <div class="col-xs-12 text-center login-area">
+                        <div class="col-xs-12">
+                            <label class="labelbox">
+                                <input type="email" class="form-control white" ng-model="loginname" required placeholder="邮箱" />
+                            </label>
+                        </div>
+                        <div class="col-xs-12">
+                            <label class="labelbox">
+                                <input type="password" id="pwd1" class="form-control white" ng-model="password" minlength="6" required placeholder="密码" ng-change="checkPasswords()" />
+                            </label>
+                        </div>
+                        <div class="col-xs-12">
+                            <label class="labelbox">
+                                <input type="password" id="pwd2" class="form-control white" ng-model="repeatpwd" minlength="6" required placeholder="确认密码" ng-change="checkPasswords()" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 text-center">
+                        <input type="submit" class="btn332 btn_reg" value="立即注册" />
+                    </div>
+                </form>
+                <div class="col-xs-12 text-center">
+                    <fieldset class="oth_type_tit">
+                        <legend align="center" class="oth_type_txt">其他方式登录</legend>
+                    </fieldset>
+                </div>
+                <div class="col-xs-12 text-center">
+                    <div class="icons-container">
+                        <a href="#" class="icon-type"><i class="btn-icontype icon-default-qq"></i></a>
+                        <a href="#" class="icon-type"><i class="btn-icontype icon-default-weibo"></i></a>
+                        <a href="#" class="icon-type"><i class="btn-icontype icon-default-alipay"></i></a>
+                        <a href="#" class="icon-type"><i class="btn-icontype icon-default-weixin"></i></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 text-center">
+                    <div class="links-area">
+                        <a ng-href="{{login_url}}">前往登录</a>
+                        <a ng-href="{{forgetPassword}}">忘记密码</a>
+                        <a ng-href="{{advanceExperience}}">功能提前体验</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

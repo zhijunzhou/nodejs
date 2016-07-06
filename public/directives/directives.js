@@ -2,15 +2,6 @@ define(['angular'], function (angular) {
 
 	var app = angular.module('directives', []);
 
-	app.directive('recentNews', function() {  
-        return {       
-            restrict: "E",      
-            replace: true,       
-            templateUrl: 'components/recentNews.html',
-        };
-     
-    });
-
     app.directive('emptyLine', function() {
         return {
             restrict: "E",
@@ -19,11 +10,35 @@ define(['angular'], function (angular) {
         };
     });
 
-    app.directive('userLogin', function() {
+    app.directive('navTop', function() {
         return {
             restrict: "E",
             replace: true,
-            templateUrl: 'components/login.html',
+            templateUrl: 'views/common/navTop.html',
+        };
+    });
+
+    app.directive('leftMenu', function() {
+        return {
+            restrict: "E",
+            replace: true,
+            templateUrl: 'views/common/leftMenu.html',
+        };
+    });
+
+    app.directive('mainFooter', function() {
+        return {
+            restrict: "E",
+            replace: true,
+            templateUrl: 'views/common/mainFooter.html',
+        };
+    });
+
+    app.directive('mainContent', function() {
+        return {
+            restrict: "E",
+            replace: true,
+            templateUrl: 'views/tpls/mainContent.html',
         };
     });
 

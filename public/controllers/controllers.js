@@ -1,4 +1,4 @@
-define(['angular', 'services','directives'], function(angular, services, directives) {
+define(['angular', 'services','directives', 'AdminLTE'], function(angular, services, directives, AdminLTE) {
 
     var app = angular.module('controllers', ['highcharts-ng', 'ui.tinymce']);
 
@@ -9,87 +9,12 @@ define(['angular', 'services','directives'], function(angular, services, directi
         $scope.advanceExperience = "newNote";
         $scope.prod_intro = "时间笔记，时间轴上的笔记！";
         $scope.start = "开启时间之旅";
-
-
     });
 
     app.controller("HomeController", function($scope) {
-
-        var percentage = [{
-            name: "感情",
-            y: 18.55
-        }, {
-            name: "技术",
-            y: 19.99
-        }, {
-            name: "美食",
-            y: 54.13
-        }, {
-            name: "体育",
-            y: 1.63
-        }, {
-            name: "其他",
-            y: 5.21
-        }];
-
-
-
-        $scope.chartConfig = {
-            options: {
-                chart: {
-                    type: 'pie',
-                    backgroundColor: 'rgba(0,0,0,0)'
-                }
-            },
-            title: {
-                text: ''
-            },
-            plotOptions: {
-                pie: {
-                    size: 80,
-                    innerSize: '20',
-                    colors: [
-                        'red',
-                        '#0d233a',
-                        '#8bbc21',
-                        '#910000',
-                        '#1aadce'
-                    ],
-                    dataLabels: {
-                        distance: 15,
-                        formatter: function() {
-                            return this.y + "%";
-                        },
-                        style: {
-                            fontweight: "bold",
-                            color: '#fff'
-                        },
-                        enabled: true
-                    }
-                }
-            },
-            legend: {
-                layout: 'vertical',
-                x: 90,
-                y: 45,
-                labelFormatter: function() {
-                    return this.name + '(' + this.y + '%)';
-                }
-            },
-            series: [{
-                type: 'pie',
-                name: '占比',
-                data: percentage
-            }],
-            tooltip: {
-                percentageDecimals: 1,
-            },
-            loading: false
-        };
-
     });
 
-    app.controller('LoginController', function($scope, UserService) {
+    app.controller('LoginController', function($scope, UserService, $location) {
         $scope.password = "123456";
         $scope.loginname = "2050588049@qq.com";
 
@@ -98,6 +23,7 @@ define(['angular', 'services','directives'], function(angular, services, directi
 
             User.query({ loginname: $scope.loginname, pass: $scope.password }).$promise.then(function(y) {
                 alert('登录成功！');
+                $location.url('/main');
             }, function(err) {
                 if (err.status === 403) {
                     alert('您的邮箱还没有被激活，请先激活邮箱！');
@@ -168,6 +94,10 @@ define(['angular', 'services','directives'], function(angular, services, directi
                 alert('创建失败！');
             });
         };
+    });
+
+    app.controller('MainController', function($scope) {
+        
     });
 
     app.controller('StudyCenterController', function($scope) {

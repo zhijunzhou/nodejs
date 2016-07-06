@@ -1,8 +1,8 @@
 'use strict';
 require.config({
     paths:{
-        'jquery': 'http://cdn.bootcss.com/jquery/1.11.2/jquery.min',
-        'jqValidate':'http://cdn.bootcss.com/jquery-validate/1.11.1/jquery.validate.min',
+        'jquery': 'http://cdn.bootcss.com/jquery/1.12.4/jquery.min',
+        'jqValidate':'http://cdn.bootcss.com/jquery-validate/1.12.4/jquery.validate.min',
         'bootstrap': 'http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min',
         'angular': 'http://cdn.bootcss.com/angular.js/1.5.0/angular',
         'angular-route': 'http://cdn.bootcss.com/angular.js/1.5.0/angular-route',
@@ -11,6 +11,7 @@ require.config({
         'highcharts-ng':'http://cdn.bootcss.com/highcharts-ng/0.0.11/highcharts-ng',
         'tinymce':'tinymce-dist/tinymce.min',
         'ui.tinymce': 'angular-ui-tinymce/dist/tinymce.min',
+        'AdminLTE':'AdminLTE/dist/js/app',
         'controllers':'controllers/controllers',
         'filters': 'filters/filters',
         'directives': 'directives/directives',
@@ -50,6 +51,9 @@ require.config({
         },
         'ui.tinymce': {
             deps: ['angular','tinymce']
+        },
+        'AdminLTE': {
+            deps:['jquery','bootstrap']
         },
         jqValidate: {
             deps:[

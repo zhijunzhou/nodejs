@@ -1,4 +1,4 @@
-define(['angular', 'require', 'angular-route','angular-resource','highcharts-ng','ui.tinymce','bootstrap','controllers','filters','directives','services'], function (angular, require) {
+define(['angular', 'require', 'angular-route','angular-resource','highcharts-ng','ui.tinymce','AdminLTE','bootstrap','controllers','filters','directives','services'], function (angular, require) {
     var app = angular.module("TimeNote", ['ngRoute','ngResource','highcharts-ng','controllers','filters','directives','services']);
 
     app.config(function($routeProvider,$locationProvider,$controllerProvider) {
@@ -19,6 +19,10 @@ define(['angular', 'require', 'angular-route','angular-resource','highcharts-ng'
             .when('/newNote', {
                 controller: 'NewNoteController',
                 templateUrl: 'views/tpls/note.html'
+            })
+            .when('/main', {
+                controller: 'MainController',
+                templateUrl: 'views/tpls/main.html'
             })
             .when('/rules', {
                 controller: "StudyCenterController",
