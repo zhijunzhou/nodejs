@@ -1,0 +1,23 @@
+{
+  "name": "org",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Zhijun Zhou <zhijun.zhou@hpe.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/zhijunzhou/nodejs",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-tinymce": "~0.0.16",
+    "AdminLTE": "admin-lte#~2.3.5",
+    "require-css": "~0.1.8"
+  }
+}
