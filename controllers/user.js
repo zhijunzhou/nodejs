@@ -54,7 +54,7 @@ exports.login = function(req, res, next) {
 
             req.session.user = user;
 
-            res.json({ isSuccess: true });
+            res.json({ isSuccess: true, sessionUser: user });
 
         }));
     });

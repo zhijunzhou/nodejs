@@ -21,10 +21,13 @@ define(['angular', 'services','directives', 'AdminLTE'], function(angular, servi
         $scope.userLogin = function() {
             var User = UserService.signin();
 
-            User.query({ loginname: $scope.loginname, pass: $scope.password }).$promise.then(function(y) {
-                alert('登录成功！');
+            $scope.loading = true;
+            User.query({ loginname: $scope.loginname, pass: $scope.password }).$promise.then(function(d) {                
+                $scope.loading = false;
+                sessionStorage.setItem('sessionUser', d.sessionUser);
                 $location.url('/main');
             }, function(err) {
+                $scope.loading = false;
                 if (err.status === 403) {
                     alert('您的邮箱还没有被激活，请先激活邮箱！');
                 }
@@ -40,16 +43,18 @@ define(['angular', 'services','directives', 'AdminLTE'], function(angular, servi
         $scope.registerUser = function() {
             var User = UserService.signup();
 
+            $scope.loading = true;
             User.save({
                 loginname: $scope.loginname,
                 pass: $scope.password,
                 email: $scope.loginname,
                 re_pass: $scope.password
             }).$promise.then(function(y) {
-                alert('注册成功！');
+                $scope.loading = false;
                 // redirect to login
                 $location.url('/login');
             }, function(error) {
+                $scope.loading = false;
                 if (error.status === 409) {
                     alert('您的邮箱已经被注册过了！');
                 }
