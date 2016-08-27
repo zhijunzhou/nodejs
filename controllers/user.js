@@ -7,8 +7,8 @@ var utility = require('utility');
 var authMiddleWare = require('../middlewares/auth');
 
 exports.login = function(req, res, next) {
-    var loginname = validator.trim(req.body.loginname);
-    var pass = validator.trim(req.body.pass);
+    var loginname = validator.trim(req.query.loginname);
+    var pass = validator.trim(req.query.pass);
     var ep = new Eventproxy();
 
     ep.fail(next);
@@ -63,10 +63,10 @@ exports.login = function(req, res, next) {
 
 exports.newUser = function(req, res, next) {
     // name, loginname, pass, email, avatar_url, active,
-    var pass 		= validator.trim(req.body.pass);
-    var loginname   = validator.trim(req.body.loginname).toLowerCase();
-    var email 		= validator.trim(req.body.email).toLowerCase();
-    var rePass 		= validator.trim(req.body.re_pass);
+    var pass 		= validator.trim(req.query.pass);
+    var loginname   = validator.trim(req.query.loginname).toLowerCase();
+    var email 		= validator.trim(req.query.email).toLowerCase();
+    var rePass 		= validator.trim(req.query.re_pass);
 
     var ep = new Eventproxy();
 
@@ -107,6 +107,73 @@ exports.newUser = function(req, res, next) {
             }));
         }
 
+    });
+
+};
+
+exports.activeUser = function(req, res, next) {
+    var email = validator.trim(req.query.email).toLowerCase();
+    var pass  = validator.trim(req.query.pass);
+    var ep    = new Eventproxy();
+
+    ep.fail(next);
+
+    ep.on('prop_err', function(msg) {
+        res.status(422);
+        return res.json({ error: msg });
+    });
+
+    function showMessage(status, isSuccess) {
+        var data = {
+            isSuccess: isSuccess
+        };
+
+        res.status(status);
+        return res.json(data);
+    }
+
+    // validate email
+    var getUser = null;
+    if (email.indexOf('@') === -1) {
+        res.status(400);
+        return res.json({ error: "Bad Request" });
+    } else {
+        getUser = User.getUserByMail;
+    }
+
+    // validate password related email
+    getUser(email, function(err, user) {
+        if (err) {
+            return next(err);
+        }
+        if (!user) {
+            return ep.emit('prop_err');
+        }
+
+        var passhash = user.pass;
+
+        tools.bcompare(pass, passhash, ep.done(function(bool) {
+            if (!bool) {
+                return ep.emit('prop_err');
+            }
+
+            if (!user.active) {
+
+                user.active = !user.active;
+
+                user.save(function (err) {
+                    if (err) {
+                      return next(err);
+                    }
+                    res.json({isSuccess: true});
+                    return;
+                });
+                
+            } else {
+                res.json({isSuccess: false});
+            }           
+
+        }));
     });
 
 };

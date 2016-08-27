@@ -15,8 +15,9 @@ var sendMail = function (data) {
 	transporter.sendMail(data, function (err) {
 		if(err) {
 			console.log(err);
+		} else {
+			console.log('发送邮件成功！');
 		}
-		console.log('发送邮件成功！');
 	});
 };
 

@@ -23,7 +23,8 @@ define(['angular', 'services','directives', 'AdminLTE'], function(angular, servi
 
             User.query({ loginname: $scope.loginname, pass: $scope.password }).$promise.then(function(y) {
                 alert('登录成功！');
-                $location.url('/main');
+                // $location.url('/main');
+                location.href = "/main";
             }, function(err) {
                 if (err.status === 403) {
                     alert('您的邮箱还没有被激活，请先激活邮箱！');

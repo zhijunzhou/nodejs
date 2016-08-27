@@ -13,6 +13,18 @@ router.get('/', function(req, res, next) {
 // user
 router.post('/user/create', user.newUser);
 router.post('/user/login', user.login);
+router.post('/user/active', user.activeUser);
+
+// main
+router.get('/main', function(req, res, next) {
+	// todo check the user session
+	if(req.session.hasOwnProperty('user')) {
+		return res.render('main');
+	} else {
+		res.status(403);
+		return res.render('index',{title:"Time Note"});
+	}	
+});
 
 // note
 router.post('/note/create', note.newNote);
