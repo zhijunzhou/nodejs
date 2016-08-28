@@ -13,7 +13,7 @@ define(['angular', 'require', 'angular-route','angular-resource','highcharts-ng'
                 templateUrl: 'views/tpls/login.html'
             })
             .when('/register', {
-                controller: "RegisterUserController",
+                controller: "RegisterController",
                 templateUrl: 'views/tpls/register.html'
             })
             .when('/newNote', {

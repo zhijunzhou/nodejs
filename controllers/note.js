@@ -8,7 +8,7 @@ exports.newNote = function (req, res, next) {
     var content   = validator.trim(req.body.content);
     var tab 	  = validator.trim(req.body.tab);
 
-    if(req.session && req.session.user) {
+    if(req.session && req.session.hasOwnProperty('user')) {
     	var author_id = req.session.user._id;
 
 		Note.createNote(title, content, tab, author_id, function(err, note) {

@@ -9,9 +9,11 @@ define(['angular', 'services','directives', 'AdminLTE'], function(angular, servi
         $scope.advanceExperience = "newNote";
         $scope.prod_intro = "时间笔记，时间轴上的笔记！";
         $scope.start = "开启时间之旅";
+    
     });
 
     app.controller("HomeController", function($scope) {
+    
     });
 
     app.controller('LoginController', function($scope, UserService, $location) {
@@ -37,11 +39,11 @@ define(['angular', 'services','directives', 'AdminLTE'], function(angular, servi
                 }
             });
         });
-    };
-        
-
-
-    app.controller('RegisterUserController', function($scope, $location, UserService) {
+    
+        };
+    });
+    
+    app.controller('RegisterController', function($scope, $location, UserService) {
         $scope.password = "123456";
         $scope.repeatpwd = "123456";
         $scope.loginname = "zhi@hp.com";
@@ -75,6 +77,7 @@ define(['angular', 'services','directives', 'AdminLTE'], function(angular, servi
                 document.getElementById("pwd1").setCustomValidity("两次输入的密码不匹配");
             }
         };
+
     });
 
     app.controller('NewNoteController', function($scope, NoteService) {
@@ -105,6 +108,7 @@ define(['angular', 'services','directives', 'AdminLTE'], function(angular, servi
                 alert('创建失败！');
             });
         };
+
     });
 
     app.controller('MainController', function($scope) {
@@ -255,5 +259,4 @@ define(['angular', 'services','directives', 'AdminLTE'], function(angular, servi
     });
 
     return app;
-});
 });
