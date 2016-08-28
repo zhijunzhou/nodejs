@@ -1,4 +1,4 @@
-define(['angular', ''], function(angular) {
+define(['angular'], function(angular) {
 
     var app = angular.module('services', ['ngResource']);
 

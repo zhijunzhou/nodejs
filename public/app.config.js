@@ -17,7 +17,9 @@ require.config({
         'services':'services/services'
     },
     map:{
-      
+      '*': {
+        'css': 'require-css/css'
+      }
     },
     shim:{
         jquery:{
@@ -54,9 +56,33 @@ require.config({
         'AdminLTE': {
             deps:['jquery','bootstrap']
         }
-    }
+    },
     // urlArgs: "t=" + (new Date()).getTime()
 });
+
+// require(['css!css/style']);
+
+function createStyleSheet(url) {
+    var link = document.createElement('link');
+    link.type = 'text/css';
+    link.rel = "stylesheet";
+    link.href= url;
+    document.getElementsByTagName('head')[0].appendChild(link);
+}
+
+
+function loadCss(urls) {
+    for(var i = 0;i < urls.length;i++) {
+        createStyleSheet(urls[i]);
+    }
+}
+
+loadCss([
+    'http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css',
+    'AdminLTE/dist/css/AdminLTE.css',
+    'AdminLTE/dist/css/skins/_all-skins.css',
+    'css/style.css'
+]);
 
 require(["angular","app"],function(angular,app){
     //angularjs start

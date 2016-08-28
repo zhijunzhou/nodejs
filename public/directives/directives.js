@@ -1,6 +1,6 @@
-define(['angular'], function (angular) {
+define(['angular'], function(angular) {
 
-	var app = angular.module('directives', []);
+    var app = angular.module('directives', []);
 
     app.directive('emptyLine', function() {
         return {
@@ -48,6 +48,22 @@ define(['angular'], function (angular) {
                 element[0].focus();
             }
         };
+    });
+
+    app.directive('loading', function() {
+        return {
+            restrict: 'E',
+            replace: true,
+            template: '<div class="loading"><img src="images/loadingcirclests16.gif" />LOADING...</div>',
+            link: function(scope, element, attr) {
+                scope.$watch('loading', function(val) {
+                    if (val)
+                        $(element).show();
+                    else
+                        $(element).hide();
+                });
+            }
+        }
     });
 
     return app;
