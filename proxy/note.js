@@ -15,5 +15,9 @@ exports.createNote = function (title, content, tab, author_id, callback) {
 };
 
 exports.notes = function(callback) {
-	Note.find({}, callback);
+	// Note.find({}, callback);
+	Note.find({}).populate({
+		path:'author_id',
+		select:'name email'
+	}).exec(callback);
 };
