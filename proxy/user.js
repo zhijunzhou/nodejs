@@ -24,10 +24,14 @@ exports.getUserByMail = function(email, callback) {
 
 exports.countUsersByMail = function (email, callback) {
 	User.count({email:email}, callback);
-}
+};
 
 exports.getUserByLoginName = function (loginName, callback) {
   User.findOne({'loginname': new RegExp('^'+loginName+'$', "i")}, callback);
+};
+
+exports.getUserById = function(id, callback) {
+	User.findOne({_id:id}).populate('name').exec(callback);
 };
 
 var makeGravatar = function (email) {

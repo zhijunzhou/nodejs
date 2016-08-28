@@ -6,7 +6,7 @@ var ObjectId = Schema.ObjectId;
 var NoteSchema = new Schema({
   title: { type: String },
   content: { type: String },
-  author_id: { type: ObjectId },
+  author_id: { type: ObjectId, ref: 'User' },
   create_at: { type: Date, default: Date.now },
   update_at: { type: Date, default: Date.now },
   tab: {type: String},

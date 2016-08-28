@@ -13,3 +13,7 @@ exports.createNote = function (title, content, tab, author_id, callback) {
 
 	note.save(callback);
 };
+
+exports.notes = function(callback) {
+	Note.find({}, callback);
+};

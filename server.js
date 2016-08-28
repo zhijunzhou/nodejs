@@ -36,9 +36,10 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use(session({
   secret: 'time_note',
   name:'time_note',
-  cookie: {maxAge: 800000},
-  resave: false,
-  saveUninitialized: true,
+  cookie: {maxAge: 3600000},
+  resave: true,
+  rolling: true,
+  saveUninitialized: true
 }));
 
 app.use('/', router);
