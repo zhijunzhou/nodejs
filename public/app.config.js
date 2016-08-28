@@ -1,8 +1,9 @@
 'use strict';
 require.config({
     paths:{
-        'jquery': '../bower_components/jquery/dist/jquery.min',
-        'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min',
+        'jquery': 'http://cdn.bootcss.com/jquery/1.12.4/jquery.min',
+        'jqValidate':'http://cdn.bootcss.com/jquery-validate/1.11.1/jquery.validate.min',
+        'bootstrap': 'http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min',
         'angular': 'http://cdn.bootcss.com/angular.js/1.5.0/angular',
         'angular-route': 'http://cdn.bootcss.com/angular.js/1.5.0/angular-route',
         'angular-resource':'http://cdn.bootcss.com/angular-resource/1.5.0/angular-resource',
@@ -55,6 +56,11 @@ require.config({
         },
         'AdminLTE': {
             deps:['jquery','bootstrap']
+        },
+        jqValidate: {
+            deps:[
+              'jquery'
+          ]
         }
     },
     // urlArgs: "t=" + (new Date()).getTime()

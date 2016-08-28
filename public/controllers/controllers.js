@@ -21,26 +21,25 @@ define(['angular', 'services','directives', 'AdminLTE'], function(angular, servi
         $scope.userLogin = function() {
             var User = UserService.signin();
 
-<<<<<<< HEAD
             User.query({ loginname: $scope.loginname, pass: $scope.password }).$promise.then(function(y) {
                 alert('登录成功！');
                 // $location.url('/main');
                 location.href = "/main";
-=======
             $scope.loading = true;
             User.query({ loginname: $scope.loginname, pass: $scope.password }).$promise.then(function(d) {                
                 $scope.loading = false;
                 sessionStorage.setItem('sessionUser', d.sessionUser);
                 $location.url('/main');
->>>>>>> origin/master
             }, function(err) {
                 $scope.loading = false;
                 if (err.status === 403) {
                     alert('您的邮箱还没有被激活，请先激活邮箱！');
                 }
             });
-        };
-    });
+        });
+    };
+        
+
 
     app.controller('RegisterUserController', function($scope, $location, UserService) {
         $scope.password = "123456";
@@ -256,5 +255,5 @@ define(['angular', 'services','directives', 'AdminLTE'], function(angular, servi
     });
 
     return app;
-
+});
 });
